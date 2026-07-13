@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Querencia — tvoje sigurno mjesto</title>
+<meta name="description" content="Querencia je aplikacija za emocionalnu podršku među ženama. Glasovne objave, krugovi podrške i razgovori — na 8 jezika, s privatnošću na prvom mjestu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+  :root {
+    --bg: #FDF8F1; --bg2: #F7EFE3; --bg3: #EFE3D2;
+    --terracotta: #C97A5D; --terracotta-deep: #A85D44;
+    --sage: #9BAB8B; --sage-deep: #6F8060;
+    --ink: #3A2820; --ink-soft: #6B564A; --ink-faded: #9C8A7E;
+    --peach: #F5E3D7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.65; }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, .serif { font-family: 'Fraunces', serif; }
+
+  header { padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 24px; color: var(--terracotta-deep); text-decoration: none; }
+  nav a { color: var(--ink-soft); text-decoration: none; margin-left: 24px; font-size: 15px; }
+  nav a:hover { color: var(--terracotta-deep); }
+
+  .hero { padding: 72px 0 56px; text-align: center; }
+  .hero h1 { font-size: clamp(38px, 6vw, 58px); font-weight: 600; line-height: 1.15; max-width: 720px; margin: 0 auto; }
+  .hero h1 em { font-style: normal; color: var(--terracotta); }
+  .hero p.sub { font-size: 19px; color: var(--ink-soft); max-width: 560px; margin: 20px auto 0; }
+  .hero .origin { display: inline-block; margin-top: 28px; background: var(--peach); color: var(--terracotta-deep); border-radius: 999px; padding: 8px 20px; font-size: 14px; }
+
+  .cta-row { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; text-decoration: none; border-radius: 999px; padding: 14px 30px; font-size: 16px; font-weight: 500; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn-primary { background: var(--terracotta); color: #fff; box-shadow: 0 6px 18px rgba(201,122,93,.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(201,122,93,.4); }
+  .btn-ghost { border: 1.5px solid var(--bg3); color: var(--ink-soft); background: #fff; }
+  .btn-ghost:hover { border-color: var(--sage); color: var(--sage-deep); }
+  .cta-note { margin-top: 14px; font-size: 13px; color: var(--ink-faded); }
+
+  section.features { padding: 56px 0; }
+  .features h2, .safety h2, .download h2 { font-size: 32px; font-weight: 600; text-align: center; margin-bottom: 12px; }
+  .features p.lead { text-align: center; color: var(--ink-soft); max-width: 620px; margin: 0 auto 44px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: #fff; border: 1px solid var(--bg3); border-radius: 20px; padding: 26px; }
+  .card .ico { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 14px; background: var(--peach); }
+  .card:nth-child(3n+2) .ico { background: #E9EFE3; }
+  .card:nth-child(3n) .ico { background: #F7EAD9; }
+  .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+
+  section.safety { padding: 40px 0 56px; }
+  .safety-box { background: var(--bg2); border-radius: 24px; padding: 36px; max-width: 720px; margin: 0 auto; text-align: center; }
+  .safety-box h2 { font-size: 24px; }
+  .safety-box p { color: var(--ink-soft); font-size: 15px; max-width: 560px; margin: 10px auto 0; }
+
+  section.download { padding: 40px 0 80px; text-align: center; }
+  .download p { color: var(--ink-soft); max-width: 520px; margin: 0 auto 28px; }
+  .store-note { margin-top: 18px; font-size: 14px; color: var(--ink-faded); }
+
+  footer { border-top: 1px solid var(--bg3); padding: 32px 0 48px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer .links a { color: var(--ink-soft); text-decoration: none; margin-right: 20px; font-size: 14px; }
+  footer .links a:hover { color: var(--terracotta-deep); }
+  footer .copy { font-size: 13px; color: var(--ink-faded); }
+
+  @media (max-width: 560px) {
+    nav a { margin-left: 14px; font-size: 14px; }
+    .hero { padding: 48px 0 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Querencia</a>
+    <nav>
+      <a href="#znacajke">Značajke</a>
+      <a href="#preuzmi">Preuzmi</a>
+      <a href="privatnost.html">Privatnost</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Mjesto gdje te se <em>čuje</em>,<br>i kad ne znaš napisati.</h1>
+    <p class="sub">Querencia je zajednica žena koje se podržavaju — glasom, riječima i prisutnošću. Bez ocjenjivanja, bez oglasa, bez buke.</p>
+    <span class="origin">querencia (šp.) — mjesto na kojem se osjećaš sigurno; utočište</span>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#preuzmi">Preuzmi aplikaciju</a>
+      <a class="btn btn-ghost" href="#znacajke">Saznaj više</a>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="znacajke">
+  <div class="wrap">
+    <h2>Podrška kakvu zaslužuješ</h2>
+    <p class="lead">Napravljena za žene, oko onoga što stvarno pomaže: da podijeliš kako ti je i da te netko čuje.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🎙️</div><h3>Glasovne objave</h3><p>Nekad je lakše reći nego napisati. Snimi kako se osjećaš — tvoj glas nosi ono što tekst ne može.</p></div>
+      <div class="card"><div class="ico">🌸</div><h3>Krugovi podrške</h3><p>Mentalno zdravlje, veze, majčinstvo, posao… pridruži se temama koje te se tiču i ženama koje razumiju.</p></div>
+      <div class="card"><div class="ico">💬</div><h3>Razgovori jedan na jedan</h3><p>Privatne poruke — tekstom ili glasom — sa ženama s kojima se povežeš.</p></div>
+      <div class="card"><div class="ico">🤲</div><h3>Geste podrške</h3><p>Zagrljaj, svijeća, cvijet… mala pažnja koja kaže "tu sam" i kad nema pravih riječi.</p></div>
+      <div class="card"><div class="ico">🌱</div><h3>Zajednička biljka</h3><p>Svaki razgovor zalijeva vašu zajedničku biljku — nježan podsjetnik da njegujete povezanost.</p></div>
+      <div class="card"><div class="ico">🗣️</div><h3>8 jezika</h3><p>Hrvatski, engleski, njemački, talijanski, španjolski, francuski, poljski i portugalski — a feed razumije značenje preko granica jezika.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="safety">
+  <div class="wrap">
+    <div class="safety-box">
+      <h2>Privatnost i sigurnost na prvom mjestu</h2>
+      <p>Tvoji podaci čuvaju se na serverima u EU i nikad se ne prodaju niti koriste za oglase. Račun i sve svoje podatke možeš trajno izbrisati u aplikaciji, jednim potezom.</p>
+      <p style="margin-top:14px">Querencia je prostor podrške, ali nije zamjena za stručnu pomoć. Ako si u krizi, nazovi <strong>112</strong> ili kriznu liniju u svojoj državi — brojevi su uvijek dostupni i u aplikaciji.</p>
+    </div>
+  </div>
+</section>
+
+<section class="download" id="preuzmi">
+  <div class="wrap">
+    <h2>Preuzmi Querenciju</h2>
+    <p>Aplikacija je trenutno u zatvorenoj beta fazi za Android. Instaliraj i pridruži se prvim članicama.</p>
+    <a class="btn btn-primary" href="https://expo.dev/artifacts/eas/gvXEpZwsRbrprLWvsafOnZqGuNpkvDPI0UJ9_vcPnmA.apk">Preuzmi za Android (beta)</a>
+    <p class="store-note">Uskoro i na Google Playu · iOS verzija u pripremi</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="privatnost.html">Politika privatnosti</a>
+      <a href="uvjeti.html">Uvjeti korištenja</a>
+      <a href="mailto:dev@split-solutions.com">Kontakt</a>
+    </div>
+    <div class="copy">© 2026 Split Solutions d.o.o. · Querencia</div>
+  </div>
+</footer>
+
+</body>
+</html>
